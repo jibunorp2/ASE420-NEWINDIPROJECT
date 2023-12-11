@@ -5,11 +5,9 @@ import backend
 
 def validate_and_format_time(time_str):
     try:
-        # Attempt to parse as 24-hour time format
         return datetime.strptime(time_str, "%H:%M").time()
     except ValueError:
         try:
-            # Attempt to parse as 12-hour time format with AM/PM
             return datetime.strptime(time_str, "%I:%M%p").time()
         except ValueError:
             print("Invalid time format. Please use the format HH:MM or H:MMAM/PM.")
